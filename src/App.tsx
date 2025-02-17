@@ -10,19 +10,17 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 
-const ExpandMore = styled((props: IconButtonProps & { expand: boolean }) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
+const ExpandMore = styled(IconButton)<{ expand: boolean }>(({ theme, expand }) => ({
   marginLeft: 'auto',
   transition: theme.transitions.create('transform', {
     duration: theme.transitions.duration.shortest,
   }),
   transform: expand ? 'rotate(180deg)' : 'rotate(0deg)',
 }));
+
 
 export default function Gallery() {
   const [index, setIndex] = useState(0);
